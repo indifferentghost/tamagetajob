@@ -1,6 +1,7 @@
 import { Hono } from "hono";
-import { jsx } from 'hono/jsx'
+import { jsx } from 'hono/jsx';
 import { Layout } from "./components/layout";
+import '../lib/env';
 
 const app = new Hono();
 
