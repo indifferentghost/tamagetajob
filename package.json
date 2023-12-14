@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "bun run --hot src/index.tsx",
-    "check": "bunx @biomejs/biome check --apply ./src/ ./lib/"
+    "check": "bunx @biomejs/biome check --apply ./src/ ./lib/",
+    "prepare": "husky install"
   },
   "dependencies": {
     "hono": "^3.11.7",
@@ -9,6 +10,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
-    "bun-types": "^1.0.7"
+    "bun-types": "^1.0.7",
+    "husky": "^8.0.0"
   }
 }
