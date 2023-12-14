@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "bun run --hot src/index.tsx",
     "check": "bunx @biomejs/biome check --apply ./src/ ./lib/",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "codegen": "bunx kysely-codegen"
   },
   "dependencies": {
     "@libsql/kysely-libsql": "^0.3.0",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
     "bun-types": "^1.0.7",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "kysely-codegen": "^0.11.0"
   }
 }
