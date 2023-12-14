@@ -5,7 +5,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@libsql/kysely-libsql": "^0.3.0",
     "hono": "^3.11.7",
+    "kysely": "^0.26.3",
     "valibot": "^0.24.1"
   },
   "devDependencies": {
