@@ -7,6 +7,7 @@
     "valibot": "^0.24.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.4.1",
     "bun-types": "^1.0.7"
   }
 }
