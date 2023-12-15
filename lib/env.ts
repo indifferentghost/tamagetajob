@@ -1,19 +1,40 @@
 import Bun from "bun";
 import {
 	url,
+	endsWith,
+	excludes,
+	literal,
 	minLength,
 	object,
 	parse,
-	picklist,
 	string,
+	toLowerCase,
 	toTrimmed,
+	union,
 } from "valibot";
 
-const ENV_LIST = ["development", "production"] as const;
-
-const EnvironmentSchema = object({
-	NODE_ENV: picklist(ENV_LIST, `ENV isn't in list ${ENV_LIST.join(" | ")}`),
-	DATABASE_URL: string([toTrimmed(), minLength(1), url()]),
+const DevEnvSchema = object({
+	NODE_ENV: literal("development"),
+	DATABASE_URL: string([
+		toTrimmed(),
+		toLowerCase(),
+		minLength(1),
+		url(),
+		endsWith("?tls=0"),
+	]),
 });
 
-export const env = parse(EnvironmentSchema, Bun.env);
+const ProdEnvSchema = object({
+	NODE_ENV: literal("production"),
+	DATABASE_URL: string([
+		toTrimmed(),
+		toLowerCase(),
+		minLength(1),
+		url(),
+		excludes("?tls=0"),
+	]),
+});
+
+const EnvSchema = union([DevEnvSchema, ProdEnvSchema]);
+
+export const env = parse(EnvSchema, Bun.env);
