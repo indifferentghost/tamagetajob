@@ -22,7 +22,7 @@ const UrlSchema = [
 
 const DevEnvSchema = object({
 	NODE_ENV: literal("development"),
-	DATABASE_URL: string("", [
+	DATABASE_URL: string("DATABASE_URL must be a string", [
 		...UrlSchema,
 		endsWith(
 			"?tls=0",
