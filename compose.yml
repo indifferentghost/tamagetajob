@@ -1,0 +1,5 @@
+services:
+  sqld:
+    image: ghcr.io/libsql/sqld:latest
+    ports:
+      - "8080:8080"
