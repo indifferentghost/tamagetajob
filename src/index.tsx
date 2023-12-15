@@ -1,8 +1,8 @@
 import { Hono } from "hono";
 import { jsx } from "hono/jsx";
+import { db } from "../lib/db";
 import "../lib/env";
 import { Layout } from "./components/layout";
-import { db } from "./db";
 
 const app = new Hono();
 
